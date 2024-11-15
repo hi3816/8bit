@@ -28,6 +28,8 @@ public class Movement : MonoBehaviour
     private void UpdateMove(Vector2 direction)
     {
         moveDir = direction;
+
+        moveDir.y = 0;
         
         if (moveDir.x < 0) renderer.flipX = true; 
         else if (moveDir.x > 0) renderer.flipX = false;
