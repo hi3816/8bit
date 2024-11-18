@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour
     private MainController mainController;
     private Rigidbody2D rb;
     private SpriteRenderer renderer;
+    private Animator animator;
     
     [SerializeField] private float Speed = 5f;
     [SerializeField] private float JumpForce = 10f;
@@ -18,6 +19,7 @@ public class Movement : MonoBehaviour
         mainController = GetComponent<MainController>();
         rb = GetComponent<Rigidbody2D>();
         renderer = GetComponentInChildren<SpriteRenderer>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     private void Start()
@@ -34,11 +36,11 @@ public class Movement : MonoBehaviour
     private void UpdateMove(Vector2 direction)
     {
         moveDir = direction;
-
         moveDir.y = 0;
         
         if (moveDir.x < 0) renderer.flipX = true; 
         else if (moveDir.x > 0) renderer.flipX = false;
+        animator.SetBool("isRunning", Mathf.Abs(moveDir.x) > 0.01f);
     }
 
     private void FixedUpdate()
@@ -59,6 +61,7 @@ public class Movement : MonoBehaviour
         {
             rb.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
             isGrounded = false;
+            animator.SetBool("isJumping", true);
         }
     }
 
@@ -68,6 +71,7 @@ public class Movement : MonoBehaviour
         if (other.collider.CompareTag("Ground"))
         {
             isGrounded = true;
+            animator.SetBool("isJumping", false);
         }
     }
     
@@ -76,6 +80,7 @@ public class Movement : MonoBehaviour
         if (other.collider.CompareTag("Ground"))
         {
             isGrounded = false;
+            animator.SetBool("isJumping", true);
         }
     }
 }
