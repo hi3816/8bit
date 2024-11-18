@@ -8,18 +8,22 @@ public class Movement : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer renderer;
     private Animator animator;
-    
+
     [SerializeField] private float Speed = 5f;
     [SerializeField] private float JumpForce = 10f;
 
+    private AudioManager audioManager; // AudioManager 참조 추가
+
     private Vector2 moveDir = Vector2.zero;
     private bool isGrounded = false;
+
     private void Awake()
     {
         mainController = GetComponent<MainController>();
         rb = GetComponent<Rigidbody2D>();
         renderer = GetComponentInChildren<SpriteRenderer>();
         animator = GetComponentInChildren<Animator>();
+        audioManager = FindObjectOfType<AudioManager>(); // AudioManager 인스턴스 찾기
     }
 
     private void Start()
@@ -27,18 +31,19 @@ public class Movement : MonoBehaviour
         mainController.OnMoveEvent += UpdateMove;
         mainController.OnJumpEvent += Jump;
     }
-    
+
     private void OnDestroy()
     {
         mainController.OnMoveEvent -= UpdateMove;
         mainController.OnJumpEvent -= Jump;
     }
+
     private void UpdateMove(Vector2 direction)
     {
         moveDir = direction;
         moveDir.y = 0;
-        
-        if (moveDir.x < 0) renderer.flipX = true; 
+
+        if (moveDir.x < 0) renderer.flipX = true;
         else if (moveDir.x > 0) renderer.flipX = false;
         animator.SetBool("isRunning", Mathf.Abs(moveDir.x) > 0.01f);
     }
@@ -62,6 +67,7 @@ public class Movement : MonoBehaviour
             rb.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
             isGrounded = false;
             animator.SetBool("isJumping", true);
+            audioManager.PlayJumpSound(); // 점프 사운드 재생 호출
         }
     }
 
@@ -73,7 +79,7 @@ public class Movement : MonoBehaviour
             animator.SetBool("isJumping", false);
         }
     }
-    
+
     private void OnCollisionExit2D(Collision2D other)
     {
         if (other.collider.CompareTag("Ground"))
@@ -83,3 +89,4 @@ public class Movement : MonoBehaviour
         }
     }
 }
+
