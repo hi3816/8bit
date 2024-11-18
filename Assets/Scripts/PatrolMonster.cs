@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LeftRightPatrolMonster : Monster
+public class PatrolMonster : Monster
 {
     public float partolDelay;
 
