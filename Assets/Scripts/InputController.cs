@@ -14,4 +14,9 @@ public class InputController : MainController
         Vector2 direction = input.Get<Vector2>().normalized;
         InvokeMoveEvent(direction);
     }
+    
+    public void OnJump()
+    {
+        InvokeJumpEvent();
+    }
 }
