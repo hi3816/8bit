@@ -13,22 +13,9 @@ public interface IMonster
 
 public class Monster : MonoBehaviour
 {
-    public Vector2 pointA;
-    public Vector2 pointB;
+    public Vector2 targetPosition;
 
     public float moveSpeed;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        pointA = transform.position;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnCollisionEnter(Collision collision)
     {
