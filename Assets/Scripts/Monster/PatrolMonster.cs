@@ -29,11 +29,6 @@ public class PatrolMonster : Monster
         StartCoroutine(Patrol());
     }
 
-    private void Update()
-    {
-        
-    }
-
     IEnumerator Patrol()
     {
         while (true)
@@ -44,7 +39,7 @@ public class PatrolMonster : Monster
             }
             else
             {
-                spriteRenderer.flipY = false;
+                spriteRenderer.flipX = false;
             }
 
             // 현재 순찰 지점으로 이동
@@ -83,12 +78,5 @@ public class PatrolMonster : Monster
 
             yield return null;
         }
-
-        /*// 이동 완료 후 정확히 타겟 위치에 맞추기 (오차 제거)
-        GetComponent<Rigidbody2D>().velocity = Vector2.zero; // 속도 초기화
-        GetComponent<Rigidbody2D>().position = new Vector2(
-            IsMoveX ? targetPosition.x : GetComponent<Rigidbody2D>().position.x,
-            IsMoveX ? GetComponent<Rigidbody2D>().position.y : targetPosition.y
-        );*/
     }
 }
