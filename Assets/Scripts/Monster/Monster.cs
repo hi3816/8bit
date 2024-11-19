@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -77,7 +77,7 @@ public class Monster : MonoBehaviour
     {
         if (isPlayTriggerOntime)
         {
-            //ÇÑ¹ø¸¸ ¹ßµ¿ÇÏ°Ô ÇÏ°í½ÍÀ½
+            //í•œë²ˆë§Œ ë°œë™í•˜ê²Œ í•˜ê³ ì‹¶ìŒ
             monsterPoint.OnTrigger -= PlayTrigger;
         }
     }
