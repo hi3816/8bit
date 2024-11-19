@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: play_button_Highlighted
+  m_Name: option_button_pressed
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,7 +21,7 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -2260086473211020204, guid: 3316aabd5dd7e2743ad1214e35350560, type: 3}
+      value: {fileID: 579855537883677915, guid: 3316aabd5dd7e2743ad1214e35350560, type: 3}
     attribute: m_Sprite
     path: 
     classID: 114
@@ -44,7 +44,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -2260086473211020204, guid: 3316aabd5dd7e2743ad1214e35350560, type: 3}
+    - {fileID: 579855537883677915, guid: 3316aabd5dd7e2743ad1214e35350560, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
