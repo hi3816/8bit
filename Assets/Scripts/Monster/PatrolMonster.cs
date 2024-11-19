@@ -78,7 +78,5 @@ public class PatrolMonster : Monster
 
             yield return null;
         }
-
-        rigidbody2D.velocity = Vector2.zero;
     }
 }
