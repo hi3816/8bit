@@ -16,7 +16,16 @@ public class Monster : MonoBehaviour
     public Vector2 targetPosition;
     public MonsterPoint monsterPoint;
 
-    public void Start()
+    protected Rigidbody2D rigidbody2D;
+    protected SpriteRenderer spriteRenderer;
+
+    private void Awake()
+    {
+        rigidbody2D = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    public virtual void Start()
     {
         if (monsterPoint != null)
         {

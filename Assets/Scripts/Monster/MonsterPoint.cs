@@ -18,10 +18,9 @@ public class MonsterPoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.gameObject.TryGetComponent(out Movement movement))
+        if (collision.gameObject.TryGetComponent(out Movement movement))
         {
             OnTrigger?.Invoke();
-            Debug.Log("OnTriggerPoint");
         }
     }
 }

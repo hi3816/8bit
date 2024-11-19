@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class PatrolMonster : Monster
 {
-    public List<Transform> patrolPointObjects;  // ¼øÂû ÁöÁ¡ ¿ÀºêÁ§Æ®
-    public List<Vector2> patrolPoints;  // ¼øÂû ÁöÁ¡
-    public float patrolDelay;          // ¼øÂû ÁöÁ¡ µµÂø ÈÄ ´ë±â ½Ã°£
+    public List<Transform> patrolPointObjects; // ìˆœì°° ì§€ì  ì˜¤ë¸Œì íŠ¸
+    public List<Vector2> patrolPoints;         // ìˆœì°° ì§€ì 
+    public float patrolDelay;                 // ìˆœì°° ì§€ì  ë„ì°© í›„ ëŒ€ê¸° ì‹œê°„
 
     private WaitForSeconds patrolWait;
     private int patrolIndex;
-    private int patrolDirection = 1;   // 1: Á¤¹æÇâ, -1: ¿ª¹æÇâ
+    private int patrolDirection = 1;          // 1: ì •ë°©í–¥, -1: ì—­ë°©í–¥
 
-    [SerializeField] bool IsMoveX;
+    [SerializeField] private bool IsMoveX;
 
-    void Start()
+    public override void Start()
     {
-        patrolPoints = new List<Vector2>();
+        base.Start();
 
+        patrolPoints = new List<Vector2>();
         foreach (Transform t in patrolPointObjects)
         {
             patrolPoints.Add(t.position);
@@ -28,57 +29,66 @@ public class PatrolMonster : Monster
         StartCoroutine(Patrol());
     }
 
+    private void Update()
+    {
+        
+    }
+
     IEnumerator Patrol()
     {
         while (true)
         {
-            // ÇöÀç ¼øÂû ÁöÁ¡À¸·Î ÀÌµ¿
+            if (transform.position.x < patrolPoints[patrolIndex].x)
+            {
+                spriteRenderer.flipX = true;
+            }
+            else
+            {
+                spriteRenderer.flipY = false;
+            }
+
+            // í˜„ì¬ ìˆœì°° ì§€ì ìœ¼ë¡œ ì´ë™
             yield return StartCoroutine(MoveToPosition(patrolPoints[patrolIndex]));
 
-            // µµÂø ÈÄ ´ë±â
+            // ë„ì°© í›„ ëŒ€ê¸°
             yield return patrolWait;
 
-            // ´ÙÀ½ ¼øÂû ÁöÁ¡À¸·Î ¹æÇâ ÀüÈ¯
+            // ë‹¤ìŒ ìˆœì°° ì§€ì ìœ¼ë¡œ ë°©í–¥ ì „í™˜
             patrolIndex += patrolDirection;
 
-            // ¹æÇâ ÀüÈ¯ ·ÎÁ÷ (¸®½ºÆ® ³¡¿¡ µµ´ŞÇÏ¸é ¹æÇâÀ» ¹İ´ë·Î º¯°æ)
+            // ë°©í–¥ ì „í™˜ ë¡œì§ (ë¦¬ìŠ¤íŠ¸ ëì— ë„ë‹¬í•˜ë©´ ë°©í–¥ì„ ë°˜ëŒ€ë¡œ ë³€ê²½)
             if (patrolIndex >= patrolPoints.Count || patrolIndex < 0)
             {
-                patrolDirection *= -1;  // ¹æÇâ ¹İÀü
-                patrolIndex += patrolDirection; // ¹üÀ§ ³»·Î º¹±¸
+                patrolDirection *= -1;  // ë°©í–¥ ë°˜ì „
+                patrolIndex += patrolDirection; // ë²”ìœ„ ë‚´ë¡œ ë³µêµ¬
             }
         }
     }
 
     IEnumerator MoveToPosition(Vector2 targetPosition)
     {
-        // ÀÌµ¿ ·ÎÁ÷
-        while (Mathf.Abs(transform.position.x - targetPosition.x) > 0.1f)
+        // ëª©í‘œ ì§€ì ê¹Œì§€ ì´ë™
+        while (Mathf.Abs(rigidbody2D.position.x - targetPosition.x) > 0.1f)
         {
-            Vector3 direction = (Vector3)targetPosition - transform.position;
-            direction.Normalize();
+            Vector2 direction = (targetPosition - rigidbody2D.position).normalized;
 
-            // XÃà¸¸ ÀÌµ¿
+            // Xì¶•ë§Œ ì´ë™
             if (IsMoveX)
             {
-                transform.position += new Vector3(direction.x, 0, 0) * moveSpeed * Time.deltaTime;
+                direction.y = 0; // Yì¶• ì´ë™ ì œê±°
             }
-            else
-            {
-                transform.position += direction * moveSpeed * Time.deltaTime;
-            }
+
+            // Rigidbodyì˜ velocity ì„¤ì •
+            rigidbody2D.velocity = direction * moveSpeed;
 
             yield return null;
         }
 
-        // ÀÌµ¿ ¿Ï·á ÈÄ Á¤È®È÷ Å¸°Ù À§Ä¡¿¡ ¸ÂÃß±â (¿ÀÂ÷ Á¦°Å)
-        if (IsMoveX)
-        {
-            transform.position = new Vector3(targetPosition.x, transform.position.y, transform.position.z);
-        }
-        else
-        {
-            transform.position = new Vector3(targetPosition.x, targetPosition.y, transform.position.z);
-        }
+        /*// ì´ë™ ì™„ë£Œ í›„ ì •í™•íˆ íƒ€ê²Ÿ ìœ„ì¹˜ì— ë§ì¶”ê¸° (ì˜¤ì°¨ ì œê±°)
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero; // ì†ë„ ì´ˆê¸°í™”
+        GetComponent<Rigidbody2D>().position = new Vector2(
+            IsMoveX ? targetPosition.x : GetComponent<Rigidbody2D>().position.x,
+            IsMoveX ? GetComponent<Rigidbody2D>().position.y : targetPosition.y
+        );*/
     }
 }
