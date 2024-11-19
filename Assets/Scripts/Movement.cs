@@ -1,5 +1,3 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -9,11 +7,19 @@ public class Movement : MonoBehaviour
     private SpriteRenderer renderer;
     private Animator animator;
     
-    [SerializeField] private float Speed = 5f;
-    [SerializeField] private float JumpForce = 10f;
+    [SerializeField] private float speed = 5f;
+    [SerializeField] private float jumpForce = 10f;
+    [SerializeField] private float doubleJumpForce = 1.5f;
 
     private Vector2 moveDir = Vector2.zero;
-    private bool isGrounded = false;
+    private bool isGrounded;
+    private int jumpCnt;
+    private int maxJumpCnt = 2;
+
+    private readonly string Ground = "Ground";
+    private readonly int isRunning = Animator.StringToHash("isRunning");
+    private readonly int isJumping = Animator.StringToHash("isJumping");
+    private readonly int isDoubleJump = Animator.StringToHash("isDoubleJump");
     private void Awake()
     {
         mainController = GetComponent<MainController>();
@@ -40,7 +46,7 @@ public class Movement : MonoBehaviour
         
         if (moveDir.x < 0) renderer.flipX = true; 
         else if (moveDir.x > 0) renderer.flipX = false;
-        animator.SetBool("isRunning", Mathf.Abs(moveDir.x) > 0.01f);
+        animator.SetBool(isRunning, Mathf.Abs(moveDir.x) > 0.01f);
     }
 
     private void FixedUpdate()
@@ -50,36 +56,48 @@ public class Movement : MonoBehaviour
 
     private void SetMovement(Vector2 direction)
     {
-        direction = direction * Speed;
+        direction = direction * speed;
         direction.y = rb.velocity.y;
         rb.velocity = direction;
     }
 
     private void Jump()
     {
-        if (isGrounded)
+        if (jumpCnt < maxJumpCnt)
         {
-            rb.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
+            rb.velocity = Vector2.zero;
+            switch (jumpCnt)
+            {
+                case 0:
+                    rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                    animator.SetBool(isJumping, true);
+                    break;
+                case 1:
+                    rb.AddForce(Vector2.up * jumpForce * doubleJumpForce, ForceMode2D.Impulse);
+                    animator.SetTrigger(isDoubleJump);
+                    break;
+            }
+            jumpCnt++;
             isGrounded = false;
-            animator.SetBool("isJumping", true);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.collider.CompareTag("Ground"))
+        if (other.collider.CompareTag(Ground))
         {
             isGrounded = true;
-            animator.SetBool("isJumping", false);
+            jumpCnt = 0;
+            animator.SetBool(isJumping, false);
         }
     }
     
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (other.collider.CompareTag("Ground"))
+        if (other.collider.CompareTag(Ground))
         {
             isGrounded = false;
-            animator.SetBool("isJumping", true);
+            animator.SetBool(isJumping, true);
         }
     }
 }
