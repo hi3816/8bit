@@ -4,6 +4,8 @@ public class AudioManager : MonoBehaviour
 {
     public AudioClip backgroundMusic; // 배경음악 클립
     public AudioClip jumpSound; // 점프 효과음
+    public AudioClip trapBlockSound;
+    public AudioClip trapSpikeSound;
     [Range(0f, 1f)]
     public float defaultVolume = 0.1f; // 기본 볼륨 설정
     private AudioSource audioSource;
@@ -25,5 +27,15 @@ public class AudioManager : MonoBehaviour
     public void PlayJumpSound()
     {
         audioSource.PlayOneShot(jumpSound); // 점프 효과음 재생
+    }
+
+    public void PlayTrapBlockSound()
+    {
+        audioSource.PlayOneShot(trapBlockSound);
+    }
+
+    public void PlayTrapSpikeSound()
+    {
+        audioSource.PlayOneShot(trapSpikeSound);
     }
 }

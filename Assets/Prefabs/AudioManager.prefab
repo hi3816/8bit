@@ -143,4 +143,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgroundMusic: {fileID: 8300000, guid: 0ad591428b0c18c4da51fe3bf98dbc63, type: 3}
   jumpSound: {fileID: 8300000, guid: 44dd7236ea895439eae146dafc319368, type: 3}
+  trapBlockSound: {fileID: 8300000, guid: 4b133cb5b228441c6b5661e5f8c9bf91, type: 3}
+  trapSpikeSound: {fileID: 8300000, guid: 6c77ff68f402e4e708a0d483087cf863, type: 3}
   defaultVolume: 0.1
