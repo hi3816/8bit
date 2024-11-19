@@ -10,7 +10,6 @@ public class LiveUI : MonoBehaviour
 
     private void UpdateLiveCount()
     {
-        
     }
 
     // Update is called once per frame
