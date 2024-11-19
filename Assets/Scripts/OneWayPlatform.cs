@@ -1,11 +1,11 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class OneWayPlatform : MonoBehaviour
 {
     private PlatformEffector2D effector;
-    public float waitTime = 0.5f; // ÇÃ·¹ÀÌ¾î°¡ ³»·Á°¡±â Àü ´ë±â ½Ã°£
+    public float waitTime = 0.5f; // í”Œë ˆì´ì–´ê°€ ë‚´ë ¤ê°€ê¸° ì „ ëŒ€ê¸° ì‹œê°„
 
     private void Start()
     {
@@ -14,13 +14,13 @@ public class OneWayPlatform : MonoBehaviour
 
     private void Update()
     {
-        // ¾Æ·¡·Î ³»·Á°¡·Á´Â ÀÔ·ÂÀ» °¨Áö
+        // ì•„ë˜ë¡œ ë‚´ë ¤ê°€ë ¤ëŠ” ì…ë ¥ì„ ê°ì§€
         if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
-            effector.rotationalOffset = 180f; // ¾Æ·¡·Î Åë°ú °¡´É
+            effector.rotationalOffset = 180f; // ì•„ë˜ë¡œ í†µê³¼ ê°€ëŠ¥
         }
 
-        // ´ë±â ½Ã°£ ÈÄ ´Ù½Ã À§·Î Ãæµ¹ °¡´É
+        // ëŒ€ê¸° ì‹œê°„ í›„ ë‹¤ì‹œ ìœ„ë¡œ ì¶©ëŒ ê°€ëŠ¥
         if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow))
         {
             Invoke("ResetPlatform", waitTime);
@@ -29,6 +29,6 @@ public class OneWayPlatform : MonoBehaviour
 
     private void ResetPlatform()
     {
-        effector.rotationalOffset = 0f; // ´Ù½Ã À§·Î Ãæµ¹ °¡´É
+        effector.rotationalOffset = 0f; // ë‹¤ì‹œ ìœ„ë¡œ ì¶©ëŒ ê°€ëŠ¥
     }
 }

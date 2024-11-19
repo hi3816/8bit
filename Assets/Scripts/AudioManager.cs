@@ -1,32 +1,32 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public AudioClip backgroundMusic; // ¹è°æÀ½¾Ç Å¬¸³
-    public AudioClip jumpSound; // Á¡ÇÁ È¿°úÀ½
+    public AudioClip backgroundMusic; // ë°°ê²½ìŒì•… í´ë¦½
+    public AudioClip jumpSound; // ì í”„ íš¨ê³¼ìŒ
     public AudioClip trapBlockSound;
     public AudioClip trapSpikeSound;
     [Range(0f, 1f)]
-    public float defaultVolume = 0.1f; // ±âº» º¼·ı ¼³Á¤
+    public float defaultVolume = 0.1f; // ê¸°ë³¸ ë³¼ë¥¨ ì„¤ì •
     private AudioSource audioSource;
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        audioSource.volume = defaultVolume; // ±âº» º¼·ı ¼³Á¤
+        audioSource.volume = defaultVolume; // ê¸°ë³¸ ë³¼ë¥¨ ì„¤ì •
         PlayBackgroundMusic();
     }
 
     public void PlayBackgroundMusic()
     {
         audioSource.clip = backgroundMusic;
-        audioSource.loop = true; // ¹İº¹ Àç»ı ¼³Á¤
+        audioSource.loop = true; // ë°˜ë³µ ì¬ìƒ ì„¤ì •
         audioSource.Play();
     }
 
     public void PlayJumpSound()
     {
-        audioSource.PlayOneShot(jumpSound); // Á¡ÇÁ È¿°úÀ½ Àç»ı
+        audioSource.PlayOneShot(jumpSound); // ì í”„ íš¨ê³¼ìŒ ì¬ìƒ
     }
 
     public void PlayTrapBlockSound()

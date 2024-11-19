@@ -1,15 +1,15 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
-    public Transform player; // ÇÃ·¹ÀÌ¾î Transform
-    private float fixedY;    // °íÁ¤µÈ Y À§Ä¡
+    public Transform player; // í”Œë ˆì´ì–´ Transform
+    private float fixedY;    // ê³ ì •ëœ Y ìœ„ì¹˜
 
     void Start()
     {
-        // Ä«¸Ş¶óÀÇ ÃÊ±â Y À§Ä¡¸¦ ÀúÀåÇÕ´Ï´Ù.
+        // ì¹´ë©”ë¼ì˜ ì´ˆê¸° Y ìœ„ì¹˜ë¥¼ ì €ì¥í•©ë‹ˆë‹¤.
         if (player != null)
         {
             fixedY = transform.position.y;
@@ -20,7 +20,7 @@ public class FollowPlayer : MonoBehaviour
     {
         if (player != null)
         {
-            // X À§Ä¡´Â ÇÃ·¹ÀÌ¾î¸¦ µû¶ó°¡°í, Y À§Ä¡´Â °íÁ¤ÇÕ´Ï´Ù.
+            // X ìœ„ì¹˜ëŠ” í”Œë ˆì´ì–´ë¥¼ ë”°ë¼ê°€ê³ , Y ìœ„ì¹˜ëŠ” ê³ ì •í•©ë‹ˆë‹¤.
             transform.position = new Vector3(player.position.x, fixedY, transform.position.z);
         }
     }

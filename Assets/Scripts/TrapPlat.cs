@@ -1,14 +1,14 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TrapPlat : MonoBehaviour
 {
-    public ParticleSystem destroyEffect; // ÆÄÆ¼Å¬ È¿°ú
-    public AudioClip destroySound;       // »ç¿îµå
+    public ParticleSystem destroyEffect; // íŒŒí‹°í´ íš¨ê³¼
+    public AudioClip destroySound;       // ì‚¬ìš´ë“œ
     private AudioSource audioSource;
 
-    //³ªÁß¿¡ »ç¿îµå Ãß°¡
+    //ë‚˜ì¤‘ì— ì‚¬ìš´ë“œ ì¶”ê°€
     /*private void Start() 
     {
         audioSource = GetComponent<AudioSource>();
@@ -18,19 +18,19 @@ public class TrapPlat : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // ÀÌÆåÆ® »ı¼º
+            // ì´í™íŠ¸ ìƒì„±
             /*if (destroyEffect != null)
             {
                 Instantiate(destroyEffect, transform.position, Quaternion.identity);
             }
 
-            // »ç¿îµå Àç»ı
+            // ì‚¬ìš´ë“œ ì¬ìƒ
             if (destroySound != null && audioSource != null)
             {
                 audioSource.PlayOneShot(destroySound);
             }*/
 
-            // ¿ÀºêÁ§Æ® »èÁ¦
+            // ì˜¤ë¸Œì íŠ¸ ì‚­ì œ
             Destroy(gameObject);
         }
     }
