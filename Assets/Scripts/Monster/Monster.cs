@@ -11,6 +11,7 @@ using UnityEngine;
 public class Monster : MonoBehaviour
 {
     [SerializeField] bool isPlayTriggerOntime;
+    [SerializeField] bool activeAfterPlayerTrigger;
 
     public float moveSpeed;
     public Vector2 targetPosition;
@@ -35,31 +36,29 @@ public class Monster : MonoBehaviour
         SetMonster();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!collision.gameObject.TryGetComponent(out Movement movement))
         {
             return;
         }
 
-        Debug.Log("1");
-
         GameObject player = collision.gameObject;
 
         if (player.transform.position.y > transform.position.y)
         {
-            Debug.Log("2");
             Die();
         }
     }
 
     public void Die()
     {
-        Debug.Log("Die");
-        
-        monsterPoint.OnTrigger -= PlayTrigger;
+        if (monsterPoint != null)
+        {
+            monsterPoint.OnTrigger -= PlayTrigger;
+        }
 
-        Destroy(gameObject);
+        Destroy(gameObject, 0.1f);
     }
 
     public virtual void SetMonster()
@@ -73,6 +72,11 @@ public class Monster : MonoBehaviour
         {
             //한번만 발동하게 하고싶음
             monsterPoint.OnTrigger -= PlayTrigger;
+        }
+
+        if(activeAfterPlayerTrigger)
+        {
+            gameObject.SetActive(true);
         }
     }
 }

@@ -67,7 +67,7 @@ public class Movement : MonoBehaviour
             rb.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
             isGrounded = false;
             animator.SetBool("isJumping", true);
-            audioManager.PlayJumpSound(); // 점프 사운드 재생 호출
+            //audioManager.PlayJumpSound(); // 점프 사운드 재생 호출
         }
     }
 
