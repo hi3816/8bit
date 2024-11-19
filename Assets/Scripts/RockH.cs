@@ -1,52 +1,52 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class RockH : MonoBehaviour
 {
-    public float detectionRange = 10f; // ÇÃ·¹ÀÌ¾î °¨Áö °Å¸®
-    public LayerMask playerLayer;     // ÇÃ·¹ÀÌ¾î ·¹ÀÌ¾î ÁöÁ¤
+    public float detectionRange = 10f; // í”Œë ˆì´ì–´ ê°ì§€ ê±°ë¦¬
+    public LayerMask playerLayer;     // í”Œë ˆì´ì–´ ë ˆì´ì–´ ì§€ì •
     private Rigidbody2D rb;
     private Animator animator;
 
     private void Start()
     {
-        // Rigidbody2D ÄÄÆ÷³ÍÆ® °¡Á®¿À±â
+        // Rigidbody2D ì»´í¬ë„ŒíŠ¸ ê°€ì ¸ì˜¤ê¸°
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
-        // ½ÃÀÛÇÒ ¶§ Áß·Â ºñÈ°¼ºÈ­
+        // ì‹œì‘í•  ë•Œ ì¤‘ë ¥ ë¹„í™œì„±í™”
         rb.gravityScale = 0;
-        // Idle »óÅÂ À¯Áö
+        // Idle ìƒíƒœ ìœ ì§€
         animator.Play("Idle");
     }
 
     private void Update()
     {
-        // ¾Æ·¡·Î Raycast¸¦ ¹ß»çÇÏ¿© ÇÃ·¹ÀÌ¾î °¨Áö
+        // ì•„ë˜ë¡œ Raycastë¥¼ ë°œì‚¬í•˜ì—¬ í”Œë ˆì´ì–´ ê°ì§€
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, detectionRange, playerLayer);
         if (hit.collider != null && hit.collider.CompareTag("Player"))
         {
-            // ÇÃ·¹ÀÌ¾î °¨Áö ½Ã ´« ¶ß±â ¾Ö´Ï¸ŞÀÌ¼Ç Àç»ı ¹× Áß·Â È°¼ºÈ­
+            // í”Œë ˆì´ì–´ ê°ì§€ ì‹œ ëˆˆ ëœ¨ê¸° ì• ë‹ˆë©”ì´ì…˜ ì¬ìƒ ë° ì¤‘ë ¥ í™œì„±í™”
             animator.SetTrigger("OpenEyes");
             rb.gravityScale = 3;
-            Debug.Log("Äô! ÇÃ·¹ÀÌ¾î °¨ÁöµÊ!");
+            Debug.Log("ì¿µ! í”Œë ˆì´ì–´ ê°ì§€ë¨!");
         }
     }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            rb.isKinematic = true; // Ãæµ¹ ÈÄ ¸ØÃß±â
+            rb.isKinematic = true; // ì¶©ëŒ í›„ ë©ˆì¶”ê¸°
         }
         if (collision.gameObject.CompareTag("Player"))
         {
-            rb.isKinematic = true; // Ãæµ¹ ÈÄ ¸ØÃß±â
+            rb.isKinematic = true; // ì¶©ëŒ í›„ ë©ˆì¶”ê¸°
         }
     }
     private void OnDrawGizmosSelected()
     {
-        // °¨Áö °Å¸® ½Ã°¢È­
+        // ê°ì§€ ê±°ë¦¬ ì‹œê°í™”
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, transform.position + Vector3.down * detectionRange);
     }

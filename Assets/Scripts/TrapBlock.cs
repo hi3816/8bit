@@ -1,32 +1,32 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TrapBlock : MonoBehaviour
 {
-    public GameObject blockPrefab;    // »ı¼ºÇÒ ºí·Ï ÇÁ¸®ÆÕ
-    public Transform spawnPoint;     // ºí·ÏÀÌ »ı¼ºµÉ À§Ä¡
-    public AudioClip collisionSound; // Ãæµ¹ »ç¿îµå Å¬¸³
-    private AudioManager audioManager; // AudioManager ÂüÁ¶
+    public GameObject blockPrefab;    // ìƒì„±í•  ë¸”ë¡ í”„ë¦¬íŒ¹
+    public Transform spawnPoint;     // ë¸”ë¡ì´ ìƒì„±ë  ìœ„ì¹˜
+    public AudioClip collisionSound; // ì¶©ëŒ ì‚¬ìš´ë“œ í´ë¦½
+    private AudioManager audioManager; // AudioManager ì°¸ì¡°
 
     private void Start()
     {
-        // AudioManager ÀÎ½ºÅÏ½º Ã£±â
+        // AudioManager ì¸ìŠ¤í„´ìŠ¤ ì°¾ê¸°
         audioManager = FindObjectOfType<AudioManager>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Ãæµ¹ÇÑ °´Ã¼°¡ ÇÃ·¹ÀÌ¾îÀÎÁö È®ÀÎ
+        // ì¶©ëŒí•œ ê°ì²´ê°€ í”Œë ˆì´ì–´ì¸ì§€ í™•ì¸
         if (collision.collider.CompareTag("Player"))
         {
-            // ÇÃ·¹ÀÌ¾î°¡ ¸Ó¸®·Î ºÎµúÇû´ÂÁö È®ÀÎ (Ãæµ¹ ¹æÇâÀÌ À§ÂÊ¿¡¼­ ¾Æ·¡·Î)
+            // í”Œë ˆì´ì–´ê°€ ë¨¸ë¦¬ë¡œ ë¶€ë”ªí˜”ëŠ”ì§€ í™•ì¸ (ì¶©ëŒ ë°©í–¥ì´ ìœ„ìª½ì—ì„œ ì•„ë˜ë¡œ)
             if (collision.contacts[0].normal.y > 0.5f)
             {
-                // ºí·Ï »ı¼º
+                // ë¸”ë¡ ìƒì„±
                 Instantiate(blockPrefab, spawnPoint.position, Quaternion.identity);
 
-                // Ãæµ¹ »ç¿îµå Àç»ı
+                // ì¶©ëŒ ì‚¬ìš´ë“œ ì¬ìƒ
                 audioManager.PlayTrapBlockSound();
             }
         }

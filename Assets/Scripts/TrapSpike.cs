@@ -1,27 +1,27 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TrapSpike : MonoBehaviour
 {
-    public GameObject spikePrefab; // »ı¼ºÇÒ °¡½Ã ÇÁ¸®ÆÕ
-    public Transform spawnPoint;  // °¡½Ã°¡ »ı¼ºµÉ À§Ä¡
-    public float detectionRange = 5f; // ÇÃ·¹ÀÌ¾î °¨Áö ¹üÀ§
-    public LayerMask playerLayer;    // ÇÃ·¹ÀÌ¾î ·¹ÀÌ¾î
+    public GameObject spikePrefab; // ìƒì„±í•  ê°€ì‹œ í”„ë¦¬íŒ¹
+    public Transform spawnPoint;  // ê°€ì‹œê°€ ìƒì„±ë  ìœ„ì¹˜
+    public float detectionRange = 5f; // í”Œë ˆì´ì–´ ê°ì§€ ë²”ìœ„
+    public LayerMask playerLayer;    // í”Œë ˆì´ì–´ ë ˆì´ì–´
     private AudioManager audioManager;
 
-    private bool isSpikeSpawned = false; // °¡½Ã°¡ ÀÌ¹Ì »ı¼ºµÇ¾ú´ÂÁö È®ÀÎ
+    private bool isSpikeSpawned = false; // ê°€ì‹œê°€ ì´ë¯¸ ìƒì„±ë˜ì—ˆëŠ”ì§€ í™•ì¸
 
     private void Start()
     {
-        // AudioManager ÀÎ½ºÅÏ½º Ã£±â
+        // AudioManager ì¸ìŠ¤í„´ìŠ¤ ì°¾ê¸°
         audioManager = FindObjectOfType<AudioManager>();
     }
 
 
     private void Update()
     {
-        // ÁÖº¯¿¡ ÇÃ·¹ÀÌ¾î°¡ ÀÖ´ÂÁö °¨Áö
+        // ì£¼ë³€ì— í”Œë ˆì´ì–´ê°€ ìˆëŠ”ì§€ ê°ì§€
         Collider2D hit = Physics2D.OverlapCircle(transform.position, detectionRange, playerLayer);
         if (hit != null && !isSpikeSpawned)
         {
@@ -31,20 +31,20 @@ public class TrapSpike : MonoBehaviour
 
     private void SpawnSpike()
     {
-        // °¡½Ã »ı¼º
+        // ê°€ì‹œ ìƒì„±
         Instantiate(spikePrefab, spawnPoint.position, Quaternion.identity);
-        isSpikeSpawned = true; // °¡½Ã°¡ »ı¼ºµÈ »óÅÂ·Î ¼³Á¤
+        isSpikeSpawned = true; // ê°€ì‹œê°€ ìƒì„±ëœ ìƒíƒœë¡œ ì„¤ì •
 
         audioManager.PlayTrapSpikeSound();
         /*if (spawnSound != null)
         {
-            audioSource.PlayOneShot(spawnSound);//³ªÁß¿¡ ¼Ò¸® »ı¼º¿ë
+            audioSource.PlayOneShot(spawnSound);//ë‚˜ì¤‘ì— ì†Œë¦¬ ìƒì„±ìš©
         }*/
     }
 
     private void OnDrawGizmosSelected()
     {
-        // °¨Áö ¹üÀ§ ½Ã°¢È­
+        // ê°ì§€ ë²”ìœ„ ì‹œê°í™”
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, detectionRange);
     }
