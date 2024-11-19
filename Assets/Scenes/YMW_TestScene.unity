@@ -6559,7 +6559,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 181954344690943438, guid: 89f59f04f4161fe40935beaebc92fd1e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2272023754887339206, guid: 89f59f04f4161fe40935beaebc92fd1e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7814,7 +7814,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1777422228}
   m_Layer: 0
-  m_Name: MonsterPoint
+  m_Name: MonsterPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8897,6 +8897,10 @@ PrefabInstance:
     - target: {fileID: 181954344690943438, guid: 89f59f04f4161fe40935beaebc92fd1e, type: 3}
       propertyPath: m_Name
       value: StraightMonster
+      objectReference: {fileID: 0}
+    - target: {fileID: 181954344690943438, guid: 89f59f04f4161fe40935beaebc92fd1e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2272023754887339206, guid: 89f59f04f4161fe40935beaebc92fd1e, type: 3}
       propertyPath: m_LocalPosition.x
