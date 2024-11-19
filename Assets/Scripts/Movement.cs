@@ -11,7 +11,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float jumpForce = 10f;
     [SerializeField] private float doubleJumpForce = 1.5f;
 
-    private AudioManager audioManager; // AudioManager ���� �߰�
+    private AudioManager audioManager;
 
     private Vector2 moveDir = Vector2.zero;
     private bool isGrounded;
@@ -28,7 +28,7 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         renderer = GetComponentInChildren<SpriteRenderer>();
         animator = GetComponentInChildren<Animator>();
-        audioManager = FindObjectOfType<AudioManager>(); // AudioManager �ν��Ͻ� ã��
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     private void Start()
@@ -83,6 +83,7 @@ public class Movement : MonoBehaviour
             }
             jumpCnt++;
             isGrounded = false;
+            audioManager.PlayJumpSound();
         }
     }
 
