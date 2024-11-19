@@ -1653,8 +1653,20 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7259964349263799658, guid: 4ca1100a628279245b114be4d1a0e3c9, type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7259964349263799658, guid: 4ca1100a628279245b114be4d1a0e3c9, type: 3}
       propertyPath: JumpForce
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7259964349263799658, guid: 4ca1100a628279245b114be4d1a0e3c9, type: 3}
+      propertyPath: jumpForce
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7259964349263799658, guid: 4ca1100a628279245b114be4d1a0e3c9, type: 3}
+      propertyPath: doubleJumpForce
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 8610499126914956637, guid: 4ca1100a628279245b114be4d1a0e3c9, type: 3}
       propertyPath: m_Name
