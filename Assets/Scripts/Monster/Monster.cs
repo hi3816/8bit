@@ -21,11 +21,6 @@ public class Monster : MonoBehaviour
         if (monsterPoint != null)
         {
             monsterPoint.OnTrigger += PlayTrigger;
-            Debug.Log("등록");
-        }
-        else
-        {
-            Debug.Log("등록안함");
         }
 
         SetMonster();
@@ -33,22 +28,29 @@ public class Monster : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (!collision.gameObject.CompareTag("Player"))
+        if (!collision.gameObject.TryGetComponent(out Movement movement))
         {
             return;
         }
+
+        Debug.Log("1");
 
         GameObject player = collision.gameObject;
 
         if (player.transform.position.y > transform.position.y)
         {
+            Debug.Log("2");
             Die();
         }
     }
 
     public void Die()
     {
+        Debug.Log("Die");
+        
         monsterPoint.OnTrigger -= PlayTrigger;
+
+        Destroy(gameObject);
     }
 
     public virtual void SetMonster()

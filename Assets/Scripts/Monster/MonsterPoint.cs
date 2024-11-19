@@ -13,13 +13,12 @@ public class MonsterPoint : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             OnTrigger?.Invoke();
-            Debug.Log("InputSpace");
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (!collision.gameObject.TryGetComponent(out Movement movement))
         {
             OnTrigger?.Invoke();
             Debug.Log("OnTriggerPoint");
