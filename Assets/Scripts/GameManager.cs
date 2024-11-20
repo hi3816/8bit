@@ -18,4 +18,9 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void GameOver()
+    {
+        Time.timeScale = 0f;
+    }
 }

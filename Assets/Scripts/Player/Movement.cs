@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
@@ -6,6 +7,7 @@ public class Movement : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer renderer;
     private Animator animator;
+    private BoxCollider2D collider;
     
     [SerializeField] private float speed = 2f;
     [SerializeField] private float jumpForce = 3f;
@@ -17,6 +19,7 @@ public class Movement : MonoBehaviour
     private bool isGrounded;
     private int jumpCnt;
     private int maxJumpCnt = 2;
+    private bool isDead = false;
 
     private readonly string Ground = "Ground";
     private readonly int isRunning = Animator.StringToHash("isRunning");
@@ -29,6 +32,7 @@ public class Movement : MonoBehaviour
         renderer = GetComponentInChildren<SpriteRenderer>();
         animator = GetComponentInChildren<Animator>();
         audioManager = FindObjectOfType<AudioManager>();
+        collider = GetComponent<BoxCollider2D>();
     }
 
     private void Start()
@@ -95,6 +99,29 @@ public class Movement : MonoBehaviour
             jumpCnt = 0;
             animator.SetBool(isJumping, false);
         }
+
+        // Trap과 충돌하고 플레이어가 죽지않은 경우
+        if (other.collider.CompareTag("Trap") && !isDead)
+        {
+            animator.SetBool(isJumping, false);
+            animator.ResetTrigger(isDoubleJump);
+            animator.SetTrigger("isDamaged");
+            
+            isDead = true;
+            rb.velocity = Vector2.zero;
+            rb.AddForce(Vector2.up * 8f, ForceMode2D.Impulse);
+            StartCoroutine(Dead());
+        }
+    }
+
+    IEnumerator Dead()
+    {
+        yield return new WaitForSeconds(0.1f); // 0.1초간 대기
+        collider.enabled = false; // 하강(추락)을 위해 collider2D 비활성화
+        rb.constraints =
+            RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation; // 이동제한 x축 위치, 회전 고정
+
+        // yield return new WaitUntil(() => transform.position.y < -5f); 특정좌표 이하일 경우 실행
     }
 
     private void OnCollisionExit2D(Collision2D other)
