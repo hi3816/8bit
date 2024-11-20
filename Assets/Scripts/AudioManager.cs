@@ -4,8 +4,10 @@ public class AudioManager : MonoBehaviour
 {
     public AudioClip backgroundMusic; // 배경음악 클립
     public AudioClip jumpSound; // 점프 효과음
-    public AudioClip trapBlockSound;
-    public AudioClip trapSpikeSound;
+    public AudioClip trapBlockSound; // 투명 블럭 생성 효과음
+    public AudioClip trapSpikeSound; // 가시 생성 효과음
+    public AudioClip monsterDieSound; // 적 밟히는 효과음
+
     [Range(0f, 1f)]
     public float defaultVolume = 0.1f; // 기본 볼륨 설정
     private AudioSource audioSource;
@@ -31,11 +33,16 @@ public class AudioManager : MonoBehaviour
 
     public void PlayTrapBlockSound()
     {
-        audioSource.PlayOneShot(trapBlockSound);
+        audioSource.PlayOneShot(trapBlockSound); // 투명 블럭 효과음 재생
     }
 
     public void PlayTrapSpikeSound()
     {
-        audioSource.PlayOneShot(trapSpikeSound);
+        audioSource.PlayOneShot(trapSpikeSound); // 가시 생성 효과음 재생
+    }
+
+    public void PlayMonsterDieSound()
+    {
+        audioSource.PlayOneShot(monsterDieSound); // 적 밟히는 효과음 재생
     }
 }

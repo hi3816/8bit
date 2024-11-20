@@ -7,8 +7,8 @@ public class Movement : MonoBehaviour
     private SpriteRenderer renderer;
     private Animator animator;
     
-    [SerializeField] private float speed = 5f;
-    [SerializeField] private float jumpForce = 10f;
+    [SerializeField] private float speed = 2f;
+    [SerializeField] private float jumpForce = 3f;
     [SerializeField] private float doubleJumpForce = 1.5f;
 
     private AudioManager audioManager;
