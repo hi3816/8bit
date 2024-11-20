@@ -14,15 +14,14 @@ public class GameManager : MonoBehaviour
     public event Action<int> OnUpdateScoreTxt;
     public event Action<float> OnTimeLimitChanged;
 
-    public event Action OnPlayerDie;
-    public event Action OnGameStart;
-
     public int startingLives = 3;
     private int lives;
-    public float timeLimit;
+    public float defaultTimeLimit;
+    private float timeLimit;
 
+    [Header ("GameState")]
     private bool isGameRunning = false;
-    private bool isTimeUp = false;
+    private bool isTimeUp = true;
 
     private void Awake()
     {
@@ -37,6 +36,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        // 초기화
+        lives = startingLives;
+    }
+
     private void Update()
     {
         if (isTimeUp) return;
@@ -48,6 +53,7 @@ public class GameManager : MonoBehaviour
             {
                 timeLimit = 0;
                 HandlePlayerDeath();
+                Debug.Log("죽음");
                 isTimeUp = true;
             }
         }
@@ -56,16 +62,9 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        // 초기화
-        lives = startingLives;
-        timeLimit = 60f; // 원하는 제한시간
-        isGameRunning = true;
+        timeLimit = defaultTimeLimit;
 
-        // 초기 UI 업데이트
         OnUpdateLiveCount?.Invoke(lives);
-
-        // 게임 시작 이벤트 호출
-        OnGameStart?.Invoke();
 
         UIManager.Instance.ShowGame();
     }
@@ -78,16 +77,21 @@ public class GameManager : MonoBehaviour
 
     public void HandlePlayerDeath()
     {
-        Debug.Log("플레이어가 죽으면 이 함수를 호출해주세요");
-        
         //목숨 카운트 -1
         ReduceLife();
-        OnPlayerDie?.Invoke();
-
-        UIManager.Instance.ShowGame();
-
-        //게임 초기화(시간, 플레이어 위치 초기화)
-        //ResetGame();
+        StartGame();
+        
+        isGameRunning = false;
     }
-    
+
+    public void ResetTimeUp()
+    {
+        isTimeUp = false;
+    }
+    public void SetGameRunning()
+    {
+        isGameRunning = true;
+    }
+
+
 }

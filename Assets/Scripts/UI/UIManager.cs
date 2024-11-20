@@ -49,9 +49,18 @@ public class UIManager : MonoBehaviour
         // delay 시간만큼 기다린 후
         yield return new WaitForSeconds(delay);
 
-        // UI 비활성화
         HideLiveCountUI();
         ShowInGameUI();
+        GameManager.Instance.SetGameRunning();
+        GameManager.Instance.ResetTimeUp();
+    }
+
+    public void HideGame()
+    {
+        // 모든 게임 관련 UI를 비활성화
+        HideLiveCountUI();
+        HideInGameUI();
+        ShowStartUI(); // Start UI를 다시 표시
     }
 
     public void ShowLiveCountUI()
@@ -70,6 +79,15 @@ public class UIManager : MonoBehaviour
     public void HideInGameUI()
     {
         inGameUI.SetActive(false);
+    }
+
+    public void ShowStartUI()
+    {
+        startUI.SetActive(true);
+    }
+    public void HideStartUI()
+    {
+        startUI.SetActive(false);
     }
 
 
