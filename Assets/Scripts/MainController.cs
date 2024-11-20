@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class MainController : MonoBehaviour
 {
-    // 액션 등록
+    // 액션 등록 부분
     public event Action<Vector2> OnMoveEvent;
     
     public event Action OnJumpEvent;
