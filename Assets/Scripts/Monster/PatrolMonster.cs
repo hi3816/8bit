@@ -55,7 +55,7 @@ public class PatrolMonster : Monster
             if (patrolIndex >= patrolPoints.Count || patrolIndex < 0)
             {
                 patrolDirection *= -1;  // 방향 반전
-                patrolIndex += patrolDirection; // 범위 내로 복구
+                patrolIndex += patrolDirection; // 범위 내 복구
             }
         }
     }
