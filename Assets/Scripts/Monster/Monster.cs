@@ -17,6 +17,7 @@ public class Monster : MonoBehaviour
     public float moveSpeed;
     public Vector2 targetPosition;
     public MonsterPoint monsterPoint;
+    private AudioManager audioManager;
 
     protected Rigidbody2D rigidbody2D;
     protected SpriteRenderer spriteRenderer;
@@ -29,6 +30,7 @@ public class Monster : MonoBehaviour
 
     public virtual void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         if (monsterPoint != null)
         {
             monsterPoint.OnTrigger += PlayTrigger;
@@ -64,7 +66,7 @@ public class Monster : MonoBehaviour
         {
             monsterPoint.OnTrigger -= PlayTrigger;
         }
-
+        audioManager.PlayTrapBlockSound();
         Destroy(gameObject, 0.1f);
     }
 
