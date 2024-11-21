@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -18,11 +15,11 @@ public class GameManager : MonoBehaviour
     public int startingLives = 3;
     private float timeLimit;
     public float defaultTimeLimit = 10;
-
+    private int score;
 
     [Header ("GameState")]
-    private bool isGameRunning = false;
-    private bool isTimeUp = true;
+    public bool isGameRunning = false;
+    public bool isTimeUp = true;
 
     private void Awake()
     {
@@ -96,5 +93,9 @@ public class GameManager : MonoBehaviour
         isGameRunning = true;
     }
 
+    public void ScoreUP()
+    {
+        score += 100;
+    }
 
 }
