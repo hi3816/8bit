@@ -5,7 +5,66 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91fc73f8-e465-4dd2-8e39-f5e6c3268390" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.8bit/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.8bit/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Sound.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Sound/brockbreak.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Sound/brockbreak.ogg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Sound/coin.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Sound/coin.ogg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Sound/death.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Sound/death.ogg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Sound/dungeon.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Sound/dungeon.ogg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Sound/humi.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Sound/humi.ogg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Sound/jump.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/New Sound/jump.ogg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap/BlockSpawner.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap/BlockSpawner/BlockSpwner 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap/BlockSpawner/BlockSpwner 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap/BlockSpawner/BlockSpwner 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap/BlockSpawner/BlockSpwner 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap/BlockSpawner/BlockSpwner.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap/BlockSpawner/BlockSpwner.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap/Fake Pallette.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap/Fake Pallette/Fake palette 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap/Fake Pallette/Fake palette 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap/Fake Pallette/Fake palette 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap/Fake Pallette/Fake palette 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap/Fake Pallette/Fake palette.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap/Fake Pallette/Fake palette.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap/HBlock.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap/HBlock/HBlock 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap/HBlock/HBlock 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap/HBlock/HBlock.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap/HBlock/HBlock.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap/RockHead.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap/RockHead/RockHead 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap/RockHead/RockHead 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap/RockHead/RockHead.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap/RockHead/RockHead.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap/SpikeSpawner.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap/SpikeSpawner/SpikeSpawner 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap/SpikeSpawner/SpikeSpawner 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap/SpikeSpawner/SpikeSpawner 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap/SpikeSpawner/SpikeSpawner 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap/SpikeSpawner/SpikeSpawner 3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap/SpikeSpawner/SpikeSpawner 3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap/SpikeSpawner/SpikeSpawner 4.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap/SpikeSpawner/SpikeSpawner 4.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap/SpikeSpawner/SpikeSpawner.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap/SpikeSpawner/SpikeSpawner.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/pixil-frame-0 (5).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/pixil-frame-0 (5).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OneWayPlatform.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OneWayPlatform.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/RockH.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/RockH.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TrapBlock.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TrapBlock.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TrapPlat.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TrapPlat.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TrapSpike.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TrapSpike.cs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
