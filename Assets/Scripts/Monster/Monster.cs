@@ -66,7 +66,7 @@ public class Monster : MonoBehaviour
         {
             monsterPoint.OnTrigger -= PlayTrigger;
         }
-        audioManager.PlayTrapBlockSound();
+        audioManager.PlayMonsterDieSound();
         Destroy(gameObject, 0.1f);
     }
 

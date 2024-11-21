@@ -12,11 +12,18 @@ public class InputController : MainController
     public void OnMove(InputValue input)
     {
         Vector2 direction = input.Get<Vector2>().normalized;
-        InvokeMoveEvent(direction);
+        if (GameManager.Instance.isGameRunning)
+        {
+            InvokeMoveEvent(direction);
+        }
+        
     }
     
     public void OnJump()
     {
-        InvokeJumpEvent();
+        if (GameManager.Instance.isGameRunning)
+        {
+            InvokeJumpEvent();
+        }
     }
 }

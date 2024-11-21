@@ -141,9 +141,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 725ec530ed177a841b8bbdb5bd56b9c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundMusic: {fileID: 8300000, guid: 0ad591428b0c18c4da51fe3bf98dbc63, type: 3}
-  jumpSound: {fileID: 8300000, guid: 44dd7236ea895439eae146dafc319368, type: 3}
+  backgroundMusic: {fileID: 8300000, guid: 6a4cc8c20c1185743bf5d3c6be338fba, type: 3}
+  jumpSound: {fileID: 8300000, guid: 82dea3c0f79401949a33515eee734df6, type: 3}
   trapBlockSound: {fileID: 8300000, guid: 4b133cb5b228441c6b5661e5f8c9bf91, type: 3}
   trapSpikeSound: {fileID: 8300000, guid: 6c77ff68f402e4e708a0d483087cf863, type: 3}
-  monsterDieSound: {fileID: 8300000, guid: 56e18f723ce814873b93dd737aa16aba, type: 3}
-  defaultVolume: 0.1
+  monsterDieSound: {fileID: 8300000, guid: 90b95d529bc751643a889104f7668393, type: 3}
+  playerDieSound: {fileID: 8300000, guid: e7955abc076440e4787299bf06c734bb, type: 3}
+  stoneDownSound: {fileID: 8300000, guid: 7a36f3dd55fa646d1bf44ca02fc73842, type: 3}
+  backgroundMusicVolume: 0.1
+  effectsVolume: 0.1
+  backgroundMusicSlider: {fileID: 0}
+  effectsSlider: {fileID: 0}

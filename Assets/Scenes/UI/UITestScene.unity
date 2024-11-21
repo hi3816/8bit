@@ -2735,9 +2735,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b446a41140b28bc46979222d940eedd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startCanvas: {fileID: 6212149353737875540}
-  inGameCanvas: {fileID: 2718333214671775702}
-  liveCanavs: {fileID: 3610212118509260}
+  startCanvas: {fileID: 0}
+  inGameCanvas: {fileID: 0}
+  liveCanavs: {fileID: 0}
 --- !u!224 &6144856296953127124
 RectTransform:
   m_ObjectHideFlags: 0
