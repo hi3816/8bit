@@ -8,16 +8,17 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    public Vector3 playerStartPosition;
+    public Transform playerStartPosition;
 
     public event Action<int> OnUpdateLiveCount;
     public event Action<int> OnUpdateScoreTxt;
     public event Action<float> OnTimeLimitChanged;
 
-    public int startingLives = 3;
     private int lives;
-    public float defaultTimeLimit;
+    public int startingLives = 3;
     private float timeLimit;
+    public float defaultTimeLimit = 10;
+
 
     [Header ("GameState")]
     private bool isGameRunning = false;
@@ -38,15 +39,17 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        // 초기화
         lives = startingLives;
+        Debug.Log($"startingLives : {startingLives}");
+        Debug.Log($"lives : {lives}");
+        Debug.Log($"defaultTimeLimit : {defaultTimeLimit}");
+        Debug.Log($"timeLimit : {timeLimit}");
     }
 
     private void Update()
     {
         if (isTimeUp) return;
         {
-            // 제한시간 감소
             timeLimit -= Time.deltaTime;
             OnTimeLimitChanged?.Invoke(timeLimit);
             if (timeLimit <= 0)
@@ -63,7 +66,8 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         timeLimit = defaultTimeLimit;
-
+        Debug.Log($"timeLimit :  {timeLimit} ");
+        Debug.Log($"lives :  {lives} ");
         OnUpdateLiveCount?.Invoke(lives);
 
         UIManager.Instance.ShowGame();
@@ -72,7 +76,6 @@ public class GameManager : MonoBehaviour
     void ReduceLife()
     {
         lives--;
-        //OnUpdateLiveCount?.Invoke(lives);
     }
 
     public void HandlePlayerDeath()
