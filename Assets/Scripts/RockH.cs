@@ -33,7 +33,7 @@ public class RockH : MonoBehaviour
         {
             // 플레이어 감지 시 눈 뜨기 애니메이션 재생 및 중력 활성화
             animator.SetTrigger("OpenEyes");
-            rb.gravityScale = 3;
+            rb.gravityScale = 2;
             Debug.Log("쿵! 플레이어 감지됨!");
 
             audioManager.PlayStoneDownSound();
