@@ -30,12 +30,15 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         startUI = Instantiate(startCanvas);
+        DontDestroyOnLoad(startUI);
         startUI.SetActive(true);
 
         liveUI = Instantiate(liveCanavs);
+        DontDestroyOnLoad(liveUI);
         liveUI.SetActive(false);
 
         inGameUI = Instantiate(inGameCanvas);
+        DontDestroyOnLoad(inGameUI);
         inGameUI.SetActive(false);
     }
 

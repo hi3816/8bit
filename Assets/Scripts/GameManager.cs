@@ -1,15 +1,21 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+
+    public GameObject odioPrefab; // 프리팹 연결
+    private static GameObject odioPrefabInstance;
 
     public Transform playerStartPosition;
 
     public event Action<int> OnUpdateLiveCount;
     public event Action<int> OnUpdateScoreTxt;
     public event Action<float> OnTimeLimitChanged;
+
+    public event Action OnDeath;
 
     private int lives;
     public int startingLives = 3;
@@ -32,6 +38,12 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (odioPrefabInstance == null) 
+        {
+            odioPrefabInstance = Instantiate(odioPrefab);
+            DontDestroyOnLoad(odioPrefabInstance);
+        }
+
     }
 
     private void Start()
@@ -52,7 +64,7 @@ public class GameManager : MonoBehaviour
             if (timeLimit <= 0)
             {
                 timeLimit = 0;
-                HandlePlayerDeath();
+                OnDeath?.Invoke();
                 Debug.Log("죽음");
                 isTimeUp = true;
             }
@@ -63,9 +75,8 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         timeLimit = defaultTimeLimit;
-        Debug.Log($"timeLimit :  {timeLimit} ");
-        Debug.Log($"lives :  {lives} ");
         OnUpdateLiveCount?.Invoke(lives);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
         UIManager.Instance.ShowGame();
     }
