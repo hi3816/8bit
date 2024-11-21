@@ -18,6 +18,7 @@ public class MonsterPoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //플레이어 인지 체크
         if (collision.gameObject.TryGetComponent(out Movement movement))
         {
             OnTrigger?.Invoke();
