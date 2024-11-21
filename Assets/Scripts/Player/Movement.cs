@@ -39,12 +39,14 @@ public class Movement : MonoBehaviour
     {
         mainController.OnMoveEvent += UpdateMove;
         mainController.OnJumpEvent += Jump;
+        GameManager.Instance.OnDeath += PlayerDeath;
     }
 
     private void OnDestroy()
     {
         mainController.OnMoveEvent -= UpdateMove;
         mainController.OnJumpEvent -= Jump;
+        GameManager.Instance.OnDeath -= PlayerDeath;
     }
 
     private void UpdateMove(Vector2 direction)
@@ -91,6 +93,18 @@ public class Movement : MonoBehaviour
         }
     }
 
+    private void PlayerDeath()
+    {
+        animator.SetBool(isJumping, false);
+        animator.ResetTrigger(isDoubleJump);
+        animator.SetTrigger("isDamaged");
+
+        isDead = true;
+        rb.velocity = Vector2.zero;
+        rb.AddForce(Vector2.up * 8f, ForceMode2D.Impulse);
+        StartCoroutine(Dead());
+    }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.collider.CompareTag(Ground))
@@ -103,26 +117,12 @@ public class Movement : MonoBehaviour
         // Trap과 충돌하고 플레이어가 죽지않은 경우
         if (other.collider.CompareTag("Trap") && !isDead)
         {
-            animator.SetBool(isJumping, false);
-            animator.ResetTrigger(isDoubleJump);
-            animator.SetTrigger("isDamaged");
-            
-            isDead = true;
-            rb.velocity = Vector2.zero;
-            rb.AddForce(Vector2.up * 8f, ForceMode2D.Impulse);
-            StartCoroutine(Dead());
+            PlayerDeath();
         }
         // Monster랑 충돌하고 플레이어가 죽지않은 경우
         if (other.collider.CompareTag("Monster") && !isDead)
         {
-            animator.SetBool(isJumping, false);
-            animator.ResetTrigger(isDoubleJump);
-            animator.SetTrigger("isDamaged");
-            
-            isDead = true;
-            rb.velocity = Vector2.zero;
-            rb.AddForce(Vector2.up * 8f, ForceMode2D.Impulse);
-            StartCoroutine(Dead());
+            PlayerDeath();
         }
     }
 
@@ -133,7 +133,8 @@ public class Movement : MonoBehaviour
         collider.enabled = false; // 하강(추락)을 위해 collider2D 비활성화
         rb.constraints =
             RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation; // 이동제한 x축 위치, 회전 고정
-
+        yield return new WaitUntil(() => transform.position.y < -5f);
+        GameManager.Instance.HandlePlayerDeath();
         // yield return new WaitUntil(() => transform.position.y < -5f); 특정좌표 이하일 경우 실행
     }
 
