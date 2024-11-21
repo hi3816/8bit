@@ -8,6 +8,7 @@ public class RockH : MonoBehaviour
     public LayerMask playerLayer;     // 플레이어 레이어 지정
     private Rigidbody2D rb;
     private Animator animator;
+    private AudioManager audioManager;
 
     private void Start()
     {
@@ -19,6 +20,9 @@ public class RockH : MonoBehaviour
         rb.gravityScale = 0;
         // Idle 상태 유지
         animator.Play("Idle");
+
+        // AudioManager 인스턴스 찾기
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     private void Update()
@@ -31,6 +35,8 @@ public class RockH : MonoBehaviour
             animator.SetTrigger("OpenEyes");
             rb.gravityScale = 3;
             Debug.Log("쿵! 플레이어 감지됨!");
+
+            audioManager.PlayStoneDownSound();
         }
     }
     private void OnCollisionEnter(Collision collision)
