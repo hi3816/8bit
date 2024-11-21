@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
     void ReduceLife()
     {
         lives--;
-        OnUpdateLiveCount?.Invoke(lives);
+        //OnUpdateLiveCount?.Invoke(lives);
     }
 
     public void HandlePlayerDeath()
