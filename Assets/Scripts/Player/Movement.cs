@@ -116,7 +116,8 @@ public class Movement : MonoBehaviour
     {
         if (other.collider.CompareTag(Ground))
         {
-            PlayerDeath();
+            isGrounded = false;
+            animator.SetBool(isJumping, true);
         }
     }
 
