@@ -112,6 +112,18 @@ public class Movement : MonoBehaviour
             rb.AddForce(Vector2.up * 8f, ForceMode2D.Impulse);
             StartCoroutine(Dead());
         }
+        // Monster랑 충돌하고 플레이어가 죽지않은 경우
+        if (other.collider.CompareTag("Monster") && !isDead)
+        {
+            animator.SetBool(isJumping, false);
+            animator.ResetTrigger(isDoubleJump);
+            animator.SetTrigger("isDamaged");
+            
+            isDead = true;
+            rb.velocity = Vector2.zero;
+            rb.AddForce(Vector2.up * 8f, ForceMode2D.Impulse);
+            StartCoroutine(Dead());
+        }
     }
 
     IEnumerator Dead()
