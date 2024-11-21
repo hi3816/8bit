@@ -11,13 +11,13 @@ GameObject:
   - component: {fileID: 2272023754887339206}
   - component: {fileID: 1012359777496527136}
   - component: {fileID: 4321477290079185447}
-  - component: {fileID: 1589427827446915104}
+  - component: {fileID: 5698966585556997638}
   - component: {fileID: 7447113859012325127}
   - component: {fileID: 5223732969536839034}
   - component: {fileID: 4538533356399650181}
   m_Layer: 0
   m_Name: StraightMonster
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,7 +116,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &1589427827446915104
+--- !u!61 &5698966585556997638
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,18 +148,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.05}
+  m_Offset: {x: -0.018745065, y: -0.05248505}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.90909094, y: 1.1515151}
+    oldSize: {x: 1.5, y: 1.9}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.969697, y: 1.030303}
+  m_Size: {x: 1.3875325, y: 1.7500426}
   m_EdgeRadius: 0
 --- !u!95 &7447113859012325127
 Animator:
@@ -195,6 +195,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayTriggerOntime: 0
+  isActiveAfterPlayerTrigger: 0
+  monsterActivePoint: {fileID: 0}
   moveSpeed: 1.2
   targetPosition: {x: 0, y: 0}
   monsterPoint: {fileID: 0}
