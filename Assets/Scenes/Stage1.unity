@@ -5334,7 +5334,7 @@ MonoBehaviour:
   odioPrefab: {fileID: 6530744525088149414, guid: 72b79bc301e37c543b5f2c688498877e, type: 3}
   playerStartPosition: {fileID: 0}
   startingLives: 3
-  defaultTimeLimit: 10
+  defaultTimeLimit: 100
   isGameRunning: 0
   isTimeUp: 1
 --- !u!1 &1914701986436472024
