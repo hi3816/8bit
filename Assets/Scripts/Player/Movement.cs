@@ -107,9 +107,21 @@ public class Movement : MonoBehaviour
         }
 
         // Trap, monster 충돌하고 플레이어가 죽지않은 경우
-        if (other.collider.CompareTag(Trap) || other.collider.CompareTag(Monster) && !isDead)
+        if (other.collider.CompareTag(Trap) && !isDead)
         {
             PlayerDeath();
+        }
+
+        if(other.collider.CompareTag(Monster) && !isDead)
+        {
+            if (transform.position.y < other.gameObject.transform.position.y)
+            {
+                PlayerDeath();
+            }
+            else
+            {
+                other.gameObject.GetComponent<Monster>().Die();
+            }
         }
     }
     private void OnCollisionExit2D(Collision2D other)
