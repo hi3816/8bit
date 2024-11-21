@@ -11,13 +11,13 @@ GameObject:
   - component: {fileID: 5570850263832023315}
   - component: {fileID: 116313440344959114}
   - component: {fileID: 2176635341040987475}
-  - component: {fileID: 2047448146727263490}
+  - component: {fileID: 2143628054569317973}
   - component: {fileID: 6956600127928816130}
   - component: {fileID: 4495112068848635807}
   - component: {fileID: 9187586390832816789}
   m_Layer: 0
   m_Name: PatrolMonster
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,7 +116,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &2047448146727263490
+--- !u!61 &2143628054569317973
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,18 +148,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.05}
+  m_Offset: {x: 0.003237605, y: -0.0129497945}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.969697, y: 1.030303}
+    oldSize: {x: 1.6, y: 1.7}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.969697, y: 1.030303}
+  m_Size: {x: 1.4510765, y: 1.518703}
   m_EdgeRadius: 0
 --- !u!95 &6956600127928816130
 Animator:
@@ -195,6 +195,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayTriggerOntime: 0
+  isActiveAfterPlayerTrigger: 0
+  monsterActivePoint: {fileID: 0}
   moveSpeed: 0.8
   targetPosition: {x: 0, y: 0}
   monsterPoint: {fileID: 0}
@@ -203,7 +205,7 @@ MonoBehaviour:
   - {fileID: 0}
   patrolPoints: []
   patrolDelay: 1
-  IsMoveX: 1
+  isOnlyMoveX: 0
 --- !u!114 &9187586390832816789
 MonoBehaviour:
   m_ObjectHideFlags: 0

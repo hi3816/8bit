@@ -12,7 +12,7 @@ public class PatrolMonster : Monster
     private int patrolIndex;
     private int patrolDirection = 1;          // 1: 정방향, -1: 역방향
 
-    [SerializeField] private bool IsMoveX;
+    [SerializeField] private bool isOnlyMoveX;
 
     public override void Start()
     {
@@ -55,7 +55,7 @@ public class PatrolMonster : Monster
             if (patrolIndex >= patrolPoints.Count || patrolIndex < 0)
             {
                 patrolDirection *= -1;  // 방향 반전
-                patrolIndex += patrolDirection; // 범위 내로 복구
+                patrolIndex += patrolDirection; // 범위 내 복구
             }
         }
     }
@@ -68,7 +68,7 @@ public class PatrolMonster : Monster
             Vector2 direction = (targetPosition - rigidbody2D.position).normalized;
 
             // X축만 이동
-            if (IsMoveX)
+            if (isOnlyMoveX)
             {
                 direction.y = 0; // Y축 이동 제거
             }
@@ -78,5 +78,7 @@ public class PatrolMonster : Monster
 
             yield return null;
         }
+
+        rigidbody2D.velocity = Vector2.zero;
     }
 }

@@ -1043,6 +1043,50 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1204909201
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1204909203}
+  - component: {fileID: 1204909202}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1204909202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204909201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f61cce0e08aebcc449be8200de044f9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1204909203
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204909201}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.1221523, y: -0.72, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1248014173
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1654,7 +1698,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7259964349263799658, guid: 4ca1100a628279245b114be4d1a0e3c9, type: 3}
       propertyPath: speed
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7259964349263799658, guid: 4ca1100a628279245b114be4d1a0e3c9, type: 3}
       propertyPath: JumpForce
@@ -1662,11 +1706,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7259964349263799658, guid: 4ca1100a628279245b114be4d1a0e3c9, type: 3}
       propertyPath: jumpForce
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7259964349263799658, guid: 4ca1100a628279245b114be4d1a0e3c9, type: 3}
-      propertyPath: doubleJumpForce
-      value: 0.7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8610499126914956637, guid: 4ca1100a628279245b114be4d1a0e3c9, type: 3}
       propertyPath: m_Name
@@ -1679,6 +1719,10 @@ PrefabInstance:
     - target: {fileID: 8610499126914956637, guid: 4ca1100a628279245b114be4d1a0e3c9, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8998425264489762729, guid: 4ca1100a628279245b114be4d1a0e3c9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4227,3 +4271,4 @@ SceneRoots:
   - {fileID: 1248014173}
   - {fileID: 1300399192}
   - {fileID: 1266031001960676537}
+  - {fileID: 1204909203}

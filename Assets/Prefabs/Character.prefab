@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2059820456600678407}
   - component: {fileID: 4686560393006209566}
   - component: {fileID: 5900580394514475638}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GPX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,9 +120,9 @@ GameObject:
   - component: {fileID: 8998425264489762729}
   - component: {fileID: 4797496942797706445}
   - component: {fileID: 7259964349263799658}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -269,5 +269,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb605f04461bb2a408c5c3d5b41e6e64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 2
-  JumpForce: 3
+  speed: 2
+  jumpForce: 3
+  doubleJumpForce: 1.5
