@@ -97,18 +97,6 @@ public class Movement : MonoBehaviour
         }
     }
 
-    private void PlayerDeath()
-    {
-        animator.SetBool(isJumping, false);
-        animator.ResetTrigger(isDoubleJump);
-        animator.SetTrigger("isDamaged");
-
-        isDead = true;
-        rb.velocity = Vector2.zero;
-        rb.AddForce(Vector2.up * 8f, ForceMode2D.Impulse);
-        StartCoroutine(Dead());
-    }
-
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.collider.CompareTag(Ground))
