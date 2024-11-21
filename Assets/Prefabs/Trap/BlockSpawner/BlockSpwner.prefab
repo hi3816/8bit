@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7203726597115346278}
   m_Layer: 0
   m_Name: BlockSpwner
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockPrefab: {fileID: 2427995992978339635, guid: 3817fdd0e4b7aa84cb6fe0cf8ba4ee8e, type: 3}
   spawnPoint: {fileID: 8113283233005052402}
+  collisionSound: {fileID: 0}
 --- !u!61 &8915129875731550620
 BoxCollider2D:
   m_ObjectHideFlags: 0
