@@ -1,20 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class LiveUI : MonoBehaviour
 {
-    [SerializeField] private TextMeshPro liveCountTxt;
+    [SerializeField] TextMeshProUGUI liveCountTxt;
 
-    private void UpdateLiveCount()
+    private void Awake()
     {
+        GameManager.Instance.OnUpdateLiveCount += UpdateLiveCount;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
     {
-        
+        GameManager.Instance.OnUpdateLiveCount -= UpdateLiveCount;
+    }
+
+    private void UpdateLiveCount(int count)
+    {
+        liveCountTxt.text = $"x {count}";
     }
 }
