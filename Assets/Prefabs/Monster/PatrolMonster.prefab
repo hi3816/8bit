@@ -205,7 +205,7 @@ MonoBehaviour:
   - {fileID: 0}
   patrolPoints: []
   patrolDelay: 1
-  IsMoveX: 1
+  isOnlyMoveX: 0
 --- !u!114 &9187586390832816789
 MonoBehaviour:
   m_ObjectHideFlags: 0
