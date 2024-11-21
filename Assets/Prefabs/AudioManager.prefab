@@ -148,4 +148,7 @@ MonoBehaviour:
   monsterDieSound: {fileID: 8300000, guid: 90b95d529bc751643a889104f7668393, type: 3}
   playerDieSound: {fileID: 8300000, guid: e7955abc076440e4787299bf06c734bb, type: 3}
   stoneDownSound: {fileID: 8300000, guid: 7a36f3dd55fa646d1bf44ca02fc73842, type: 3}
-  defaultVolume: 0.1
+  backgroundMusicVolume: 0.1
+  effectsVolume: 0.1
+  backgroundMusicSlider: {fileID: 0}
+  effectsSlider: {fileID: 0}
