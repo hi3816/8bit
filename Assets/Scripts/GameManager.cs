@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     public float defaultTimeLimit = 10;
     private int score;
 
-    [Header ("GameState")]
+    [Header("GameState")]
     public bool isGameRunning = false;
     public bool isTimeUp = true;
 
@@ -38,12 +38,11 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if (odioPrefabInstance == null) 
+        if (odioPrefabInstance == null)
         {
             odioPrefabInstance = Instantiate(odioPrefab);
             DontDestroyOnLoad(odioPrefabInstance);
         }
-
     }
 
     private void Start()
@@ -69,7 +68,6 @@ public class GameManager : MonoBehaviour
                 isTimeUp = true;
             }
         }
-           
     }
 
     public void StartGame()
@@ -91,7 +89,7 @@ public class GameManager : MonoBehaviour
         //목숨 카운트 -1
         ReduceLife();
         StartGame();
-        
+
         isGameRunning = false;
     }
 
@@ -99,6 +97,7 @@ public class GameManager : MonoBehaviour
     {
         isTimeUp = false;
     }
+
     public void SetGameRunning()
     {
         isGameRunning = true;
@@ -108,5 +107,4 @@ public class GameManager : MonoBehaviour
     {
         score += 100;
     }
-
 }
