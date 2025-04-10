@@ -9,8 +9,6 @@ public class GameManager : MonoBehaviour
     public GameObject odioPrefab; // 프리팹 연결
     private static GameObject odioPrefabInstance;
 
-    public Transform playerStartPosition;
-
     public event Action<int> OnUpdateLiveCount;
     public event Action<int> OnUpdateScoreTxt;
     public event Action<float> OnTimeLimitChanged;
@@ -38,12 +36,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if (odioPrefabInstance == null) 
-        {
-            odioPrefabInstance = Instantiate(odioPrefab);
-            DontDestroyOnLoad(odioPrefabInstance);
-        }
-
     }
 
     private void Start()
@@ -53,23 +45,27 @@ public class GameManager : MonoBehaviour
         Debug.Log($"lives : {lives}");
         Debug.Log($"defaultTimeLimit : {defaultTimeLimit}");
         Debug.Log($"timeLimit : {timeLimit}");
+        
+        if (odioPrefabInstance == null) 
+        {
+            odioPrefabInstance = Instantiate(odioPrefab);
+            DontDestroyOnLoad(odioPrefabInstance);
+        }
     }
 
     private void Update()
     {
         if (isTimeUp) return;
+        
+        timeLimit -= Time.deltaTime;
+        OnTimeLimitChanged?.Invoke(timeLimit);
+        if (timeLimit <= 0)
         {
-            timeLimit -= Time.deltaTime;
-            OnTimeLimitChanged?.Invoke(timeLimit);
-            if (timeLimit <= 0)
-            {
-                timeLimit = 0;
-                OnDeath?.Invoke();
-                Debug.Log("죽음");
-                isTimeUp = true;
-            }
+            timeLimit = 0;
+            OnDeath?.Invoke();
+            Debug.Log("죽음");
+            isTimeUp = true;
         }
-           
     }
 
     public void StartGame()
@@ -104,7 +100,7 @@ public class GameManager : MonoBehaviour
         isGameRunning = true;
     }
 
-    public void ScoreUP()
+    public void ScoreUp()
     {
         score += 100;
     }

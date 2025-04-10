@@ -661,7 +661,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6002008353125111764}
   m_Layer: 5
-  m_Name: SfxGroup (1)
+  m_Name: BackgroundGroup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -775,7 +775,7 @@ GameObject:
   - component: {fileID: 4139419151221870091}
   - component: {fileID: 1845285054130706134}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: BackgroundGroupText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1366,7 +1366,7 @@ GameObject:
   - component: {fileID: 3671877038488181681}
   - component: {fileID: 2283405636936225278}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: SfxText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1572,7 +1572,7 @@ GameObject:
   - component: {fileID: 6929845161552986432}
   - component: {fileID: 7690040755412783121}
   m_Layer: 5
-  m_Name: SfxSlider
+  m_Name: BackgroundSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -272,3 +272,4 @@ MonoBehaviour:
   speed: 2
   jumpForce: 3
   doubleJumpForce: 1.5
+  deadJumpForce: 8

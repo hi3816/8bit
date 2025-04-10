@@ -2,6 +2,8 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance { get; private set; }
@@ -9,10 +11,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject startCanvas;
     [SerializeField] private GameObject inGameCanvas;
     [SerializeField] private GameObject liveCanavs;
+    [SerializeField] private GameObject optionPopupUI;
+    [SerializeField] private Slider backgroundSlider;
+    [SerializeField] private Slider effectsSlider;
 
     private GameObject startUI;
     private GameObject liveUI;
     private GameObject inGameUI;
+    AudioManager audioManager;
 
     private void Awake()
     {
@@ -42,14 +48,20 @@ public class UIManager : MonoBehaviour
         inGameUI.SetActive(false);
     }
 
+    public void OptionPopupUI()
+    {
+        optionPopupUI.SetActive(true);
+        audioManager.InitSliders(backgroundSlider, effectsSlider);
+    }
+
     public void ShowGame()
     {
         ShowLiveCountUI();
-        StartCoroutine(HideLiveCountAfterDelay(3f)); // 3ÃÊ ÈÄ¿¡ UI ºñÈ°¼ºÈ­
+        StartCoroutine(HideLiveCountAfterDelay(3f)); // 3ï¿½ï¿½ ï¿½Ä¿ï¿½ UI ï¿½ï¿½È°ï¿½ï¿½È­
     }
     private IEnumerator HideLiveCountAfterDelay(float delay)
     {
-        // delay ½Ã°£¸¸Å­ ±â´Ù¸° ÈÄ
+        // delay ï¿½Ã°ï¿½ï¿½ï¿½Å­ ï¿½ï¿½Ù¸ï¿½ ï¿½ï¿½
         yield return new WaitForSeconds(delay);
 
         HideLiveCountUI();
@@ -60,10 +72,10 @@ public class UIManager : MonoBehaviour
 
     public void HideGame()
     {
-        // ¸ðµç °ÔÀÓ °ü·Ã UI¸¦ ºñÈ°¼ºÈ­
+        // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ UIï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
         HideLiveCountUI();
         HideInGameUI();
-        ShowStartUI(); // Start UI¸¦ ´Ù½Ã Ç¥½Ã
+        ShowStartUI(); // Start UIï¿½ï¿½ ï¿½Ù½ï¿½ Ç¥ï¿½ï¿½
     }
 
     public void ShowLiveCountUI()

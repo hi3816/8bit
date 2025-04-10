@@ -148,7 +148,7 @@ public class Movement : MonoBehaviour
     IEnumerator Dead()
     {
         audioManager.PlayPlayerDieSound();
-        yield return new WaitForSeconds(0.1f); // 0.1초간 대기
+        //yield return new WaitForSeconds(0.1f); // 0.1초간 대기
         collider.enabled = false; // 하강(추락)을 위해 collider2D 비활성화
         rb.constraints =
             RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation; // 이동제한 x축 위치, 회전 고정

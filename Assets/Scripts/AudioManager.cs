@@ -36,7 +36,13 @@ public class AudioManager : MonoBehaviour
 
         // 효과음 기본 설정
         effectsSource.volume = effectsVolume;
+    }
 
+    public void InitSliders(Slider backgroundSlider, Slider sfxSlider)
+    {
+        this.backgroundMusicSlider = backgroundSlider;
+        this.effectsSlider = sfxSlider;
+        
         // 슬라이더 초기값 설정
         backgroundMusicSlider.value = backgroundMusicVolume;
         effectsSlider.value = effectsVolume;
