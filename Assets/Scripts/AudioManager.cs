@@ -21,11 +21,14 @@ public class AudioManager : MonoBehaviour
     private AudioSource backgroundMusicSource;
     private AudioSource effectsSource;
 
+    private Slider backgroundMusicSlider;
+    private Slider effectsSlider;
+
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else

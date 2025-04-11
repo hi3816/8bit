@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91fc73f8-e465-4dd2-8e39-f5e6c3268390" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OptionMenu.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OptionMenu.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/UI/StartCanvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/UI/StartCanvas.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AudioManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Movement.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +31,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Unity 에디터에 연결.Unity 에디터에 연결.executor": "Debug",
-    "git-widget-placeholder": "JBR 병합 중",
+    "git-widget-placeholder": "JBR",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -97,7 +92,7 @@
       <workItem from="1732186732164" duration="180000" />
       <workItem from="1732195954958" duration="782000" />
       <workItem from="1744295298078" duration="7742000" />
-      <workItem from="1744335880520" duration="3120000" />
+      <workItem from="1744335880520" duration="3449000" />
     </task>
     <servers />
   </component>
