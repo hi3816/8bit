@@ -112,15 +112,15 @@ public class Movement : MonoBehaviour
             PlayerDeath();
         }
 
-        if(other.collider.CompareTag(Monster) && !isDead)
+        if (other.collider.CompareTag(Monster) && !isDead)
         {
-            if (transform.position.y < other.gameObject.transform.position.y)
+            if (transform.position.y - other.gameObject.transform.position.y > 0.1f)
             {
-                PlayerDeath();
+                other.gameObject.GetComponent<Monster>().Die();
             }
             else
             {
-                other.gameObject.GetComponent<Monster>().Die();
+                PlayerDeath();
             }
         }
     }

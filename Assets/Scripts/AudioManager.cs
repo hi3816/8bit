@@ -14,22 +14,18 @@ public class AudioManager : MonoBehaviour
     public AudioClip stoneDownSound; // 바위 떨어지는 효과음
 
     [Range(0f, 1f)]
-    public float backgroundMusicVolume = 0.1f; // 배경음악 볼륨
+    public float backgroundMusicVolume = 0.1f;
     [Range(0f, 1f)]
-    public float effectsVolume = 0.1f; // 효과음 볼륨
+    public float effectsVolume = 0.1f;
 
     private AudioSource backgroundMusicSource;
     private AudioSource effectsSource;
 
-    public Slider backgroundMusicSlider; // 배경음악 슬라이더
-    public Slider effectsSlider; // 효과음 슬라이더
-
-    
     private void Awake()
     {
-        if (Instance == null)
+        if (instance == null)
         {
-            Instance = this;
+            instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -37,19 +33,17 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    void Start()
+
+    private void Start()
     {
-        // 두 개의 AudioSource 컴포넌트를 추가
         backgroundMusicSource = gameObject.AddComponent<AudioSource>();
         effectsSource = gameObject.AddComponent<AudioSource>();
 
-        // 배경음악 설정
         backgroundMusicSource.clip = backgroundMusic;
         backgroundMusicSource.loop = true;
         backgroundMusicSource.volume = backgroundMusicVolume;
         PlayBackgroundMusic();
 
-        // 효과음 기본 설정
         effectsSource.volume = effectsVolume;
     }
 
@@ -78,40 +72,42 @@ public class AudioManager : MonoBehaviour
     public void SetBackgroundMusicVolume(float volume)
     {
         backgroundMusicSource.volume = volume;
+        backgroundMusicVolume = volume;
     }
 
     public void SetEffectsVolume(float volume)
     {
         effectsSource.volume = volume;
+        effectsVolume = volume;
     }
 
     public void PlayJumpSound()
     {
-        effectsSource.PlayOneShot(jumpSound); // 점프 효과음 재생
+        effectsSource.PlayOneShot(jumpSound);
     }
 
     public void PlayTrapBlockSound()
     {
-        effectsSource.PlayOneShot(trapBlockSound); // 투명 블럭 효과음 재생
+        effectsSource.PlayOneShot(trapBlockSound);
     }
 
     public void PlayTrapSpikeSound()
     {
-        effectsSource.PlayOneShot(trapSpikeSound); // 가시 생성 효과음 재생
+        effectsSource.PlayOneShot(trapSpikeSound);
     }
 
     public void PlayMonsterDieSound()
     {
-        effectsSource.PlayOneShot(monsterDieSound); // 적 밟히는 효과음 재생
+        effectsSource.PlayOneShot(monsterDieSound);
     }
 
     public void PlayPlayerDieSound()
     {
-        effectsSource.PlayOneShot(playerDieSound); // 플레이어 사망 효과음 재생
+        effectsSource.PlayOneShot(playerDieSound);
     }
 
     public void PlayStoneDownSound()
     {
-        effectsSource.PlayOneShot(stoneDownSound); // 바위 떨어지는 효과음 재생
+        effectsSource.PlayOneShot(stoneDownSound);
     }
 }
