@@ -8,17 +8,17 @@ public class OptionMenu : MonoBehaviour
 
     private void Start()
     {
-        // ½½¶óÀÌ´õ ¿ÀºêÁ§Æ®¸¦ ÀÌ¸§À¸·Î Ã£±â
+        // ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½
         backgroundMusicSlider = GameObject.Find("BackgroundMusicSlider").GetComponent<Slider>();
         effectsSlider = GameObject.Find("EffectsSlider").GetComponent<Slider>();
 
-        if (AudioManager.instance != null)
+        if (AudioManager.Instance != null)
         {
-            // ½½¶óÀÌ´õ ÃÊ±â°ª ¼³Á¤
-            backgroundMusicSlider.value = AudioManager.instance.backgroundMusicVolume;
-            effectsSlider.value = AudioManager.instance.effectsVolume;
+            // ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½Ê±â°ª ï¿½ï¿½ï¿½ï¿½
+            backgroundMusicSlider.value = AudioManager.Instance.backgroundMusicVolume;
+            effectsSlider.value = AudioManager.Instance.effectsVolume;
 
-            // ½½¶óÀÌ´õ ÀÌº¥Æ® ¿¬°á
+            // ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½
             backgroundMusicSlider.onValueChanged.AddListener(SetBackgroundMusicVolume);
             effectsSlider.onValueChanged.AddListener(SetEffectsVolume);
         }
@@ -26,11 +26,11 @@ public class OptionMenu : MonoBehaviour
 
     public void SetBackgroundMusicVolume(float volume)
     {
-        AudioManager.instance.SetBackgroundMusicVolume(volume);
+        AudioManager.Instance.SetBackgroundMusicVolume(volume);
     }
 
     public void SetEffectsVolume(float volume)
     {
-        AudioManager.instance.SetEffectsVolume(volume);
+        AudioManager.Instance.SetEffectsVolume(volume);
     }
 }
