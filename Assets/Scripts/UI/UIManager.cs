@@ -11,14 +11,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject startCanvas;
     [SerializeField] private GameObject inGameCanvas;
     [SerializeField] private GameObject liveCanavs;
-    [SerializeField] private GameObject optionPopupUI;
-    [SerializeField] private Slider backgroundSlider;
-    [SerializeField] private Slider effectsSlider;
 
     private GameObject startUI;
     private GameObject liveUI;
     private GameObject inGameUI;
-    AudioManager audioManager;
 
     private void Awake()
     {
@@ -46,12 +42,6 @@ public class UIManager : MonoBehaviour
         inGameUI = Instantiate(inGameCanvas);
         DontDestroyOnLoad(inGameUI);
         inGameUI.SetActive(false);
-    }
-
-    public void OptionPopupUI()
-    {
-        optionPopupUI.SetActive(true);
-        audioManager.InitSliders(backgroundSlider, effectsSlider);
     }
 
     public void ShowGame()

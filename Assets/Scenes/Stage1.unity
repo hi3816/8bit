@@ -607,9 +607,6 @@ MonoBehaviour:
   startCanvas: {fileID: 2850036715717070158, guid: efaeb90a91a07834783b1c57b652d23f, type: 3}
   inGameCanvas: {fileID: 4578477233477696511, guid: 7bac6ca55590816439dd762ebba24ae1, type: 3}
   liveCanavs: {fileID: 1575981603473255684, guid: bfd8cc3350dc3c24399d6baa1267cd5c, type: 3}
-  optionPopupUI: {fileID: 0}
-  backgroundSlider: {fileID: 0}
-  effectsSlider: {fileID: 0}
 --- !u!4 &424600841
 Transform:
   m_ObjectHideFlags: 0

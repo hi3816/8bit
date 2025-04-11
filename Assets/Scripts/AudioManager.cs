@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
+    public static AudioManager Instance { get; private set; }
+    
     public AudioClip backgroundMusic; // 배경음악 클립
     public AudioClip jumpSound; // 점프 효과음
     public AudioClip trapBlockSound; // 투명 블럭 생성 효과음
@@ -22,6 +24,19 @@ public class AudioManager : MonoBehaviour
     public Slider backgroundMusicSlider; // 배경음악 슬라이더
     public Slider effectsSlider; // 효과음 슬라이더
 
+    
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     void Start()
     {
         // 두 개의 AudioSource 컴포넌트를 추가
