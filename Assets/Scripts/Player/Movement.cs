@@ -60,7 +60,7 @@ public class Movement : MonoBehaviour
 
         if (moveDir.x < 0) renderer.flipX = true;
         else if (moveDir.x > 0) renderer.flipX = false;
-        animator.SetBool(isRunning, Mathf.Abs(moveDir.x) > 0.01f);
+        animator.SetBool(isRunning, true);
     }
 
     private void FixedUpdate()

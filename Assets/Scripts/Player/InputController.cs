@@ -16,7 +16,6 @@ public class InputController : MainController
         {
             InvokeMoveEvent(direction);
         }
-        
     }
     
     public void OnJump()
